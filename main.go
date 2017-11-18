@@ -66,9 +66,11 @@ func homeHandler(rw http.ResponseWriter, req *http.Request) {
 
 func init() {
 	staticHTTP = http.NewServeMux()
+
+	// Pre load .html template file
 	tpl = template.Must(template.ParseGlob("./*.html"))
 
-	// Setting path
+	// Setting URL path
 	routes.setRoutes(
 		Route{"/", makeHandler(homeHandler)},
 	)
